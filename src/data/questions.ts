@@ -1,0 +1,80 @@
+export interface IQuiz {
+    question?: string,
+    answers?: string[],
+    right_answer?: string,
+    incorrect_answers?: string[],
+    url?: string,
+}
+export const quiz:IQuiz[] =
+            [
+                {
+                    question: "Что выведется в консоль?",
+                    answers: ["0", "1", "11", "Ошибка"],
+                    right_answer: "1",
+                    incorrect_answers: ["0", "11", "Ошибка"],
+                    url: "http://pic/com",
+                },
+                {
+                    question: "Что выведется в консоль?",
+                    answers: ["0", "1", "11", "Ошибка"],
+                    right_answer: "1",
+                    incorrect_answers: ["0", "11", "Ошибка"],
+                    url: "http://pic/com",
+                },
+                {
+                    question: "Что выведется в консоль?",
+                    answers: ["0", "1", "11", "Ошибка"],
+                    right_answer: "1",
+                    incorrect_answers: ["0", "11", "Ошибка"],
+                    url: "http://pic/com",
+                },
+                {
+                    question: "Что выведется в консоль?",
+                    answers: ["0", "1", "11", "Ошибка"],
+                    right_answer: "1",
+                    incorrect_answers: ["0", "11", "Ошибка"],
+                    url: "http://pic/com",
+                },
+                {
+                    question: "Что выведется в консоль?",
+                    answers: ["0", "1", "11", "Ошибка"],
+                    right_answer: "1",
+                    incorrect_answers: ["0", "11", "Ошибка"],
+                    url: "http://pic/com",
+                },
+                {
+                    question: "Что выведется в консоль?",
+                    answers: ["0", "1", "11", "Ошибка"],
+                    right_answer: "1",
+                    incorrect_answers: ["0", "11", "Ошибка"],
+                    url: "http://pic/com",
+                },
+                {
+                    question: "Что выведется в консоль?",
+                    answers: ["0", "1", "11", "Ошибка"],
+                    right_answer: "1",
+                    incorrect_answers: ["0", "11", "Ошибка"],
+                    url: "http://pic/com",
+                },
+                {
+                    question: "Что выведется в консоль?",
+                    answers: ["0", "1", "11", "Ошибка"],
+                    right_answer: "1",
+                    incorrect_answers: ["0", "11", "Ошибка"],
+                    url: "http://pic/com",
+                },
+                {
+                    question: "Что выведется в консоль?",
+                    answers: ["0", "1", "11", "Ошибка"],
+                    right_answer: "1",
+                    incorrect_answers: ["0", "11", "Ошибка"],
+                    url: "http://pic/com",
+                },
+                {
+                    question: "Что выведется в консоль?",
+                    answers: ["0", "1", "11", "Ошибка"],
+                    right_answer: "1",
+                    incorrect_answers: ["0", "11", "Ошибка"],
+                    url: "http://pic/com",
+                },
+            ]
