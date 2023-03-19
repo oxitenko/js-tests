@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import QuestionCard from "./components/QuestionCard";
 import {quiz, IQuiz} from "./data/questions"
-import {GlobalStyle} from "./App.styles";
+import {GlobalStyle, Wrapper} from "./style/App.styles";
 
 const TOTAL_QUESTION = 10;
 
@@ -57,8 +57,8 @@ const App = () => {
     return (
         <>
             <GlobalStyle/>
-            <div className="App">
-                <h1>Тесты по JavaScript</h1>
+            <Wrapper>
+                <h1>Тест по JavaScript</h1>
                 {quizIsOver || userAnswers.length === TOTAL_QUESTION ?
                     (<button className="start" onClick={startQuiz}>Начать</button>) : null}
                 {!quizIsOver ? <p className="score">Результат: {score}</p> : null}
@@ -71,13 +71,14 @@ const App = () => {
                         answers={(questions as Array<any>)[number]?.answers}
                         userAnswer={userAnswers ? userAnswers[number] : undefined}
                         callback={checkAnswer}
+                        src={(questions as Array<any>)[number]?.src}
                     />)}
                 {!quizIsOver &&
                 !loading &&
                 userAnswers.length === number + 1 &&
                 number !== TOTAL_QUESTION + 1 ? (
                     <button className="next" onClick={nextQuestion}>Следующий вопрос</button>) : null}
-            </div>
+            </Wrapper>
         </>
     );
 }
