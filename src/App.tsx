@@ -3,8 +3,6 @@ import QuestionCard from "./components/QuestionCard";
 import {quiz, IQuiz} from "./data/questions"
 import {GlobalStyle, Wrapper} from "./style/App.styles";
 
-const TOTAL_QUESTION = 10;
-
 export type AnswerObj = {
     question?: string;
     answer?: string;
@@ -20,6 +18,7 @@ const App = () => {
     const [userAnswers, setUserAnswers] = useState<AnswerObj[]>([]);
     const [score, setScore] = useState(0);
     const [quizIsOver, setQuizIsOver] = useState(true);
+    const TOTAL_QUESTION = questions.length;
 
     const startQuiz = () => {
         setLoading(true);
@@ -27,7 +26,8 @@ const App = () => {
         setQuestions(quiz);
         setScore(0);
         setUserAnswers([]);
-        setLoading(false)
+        setNumber(0);
+        setLoading(false);
     }
 
     const checkAnswer = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -76,7 +76,7 @@ const App = () => {
                 {!quizIsOver &&
                 !loading &&
                 userAnswers.length === number + 1 &&
-                number !== TOTAL_QUESTION + 1 ? (
+                number + 1 !== TOTAL_QUESTION ? (
                     <button className="next" onClick={nextQuestion}>Следующий вопрос</button>) : null}
             </Wrapper>
         </>
