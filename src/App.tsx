@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import QuestionCard from "./components/QuestionCard";
 import {quiz, IQuiz} from "./data/questions"
-import {GlobalStyle, Wrapper} from "./style/App.styles";
+import {GlobalStyle, Wrapper, Logo} from "./style/App.styles";
+import NavigationBar from "./components/NavigationBar";
 
 export type AnswerObj = {
     question?: string;
@@ -58,10 +59,7 @@ const App = () => {
         <>
             <GlobalStyle/>
             <Wrapper>
-                <h1>Тест по JavaScript</h1>
-                {quizIsOver || userAnswers.length === TOTAL_QUESTION ?
-                    (<button className="start" onClick={startQuiz}>Начать</button>) : null}
-                {!quizIsOver ? <p className="score">Результат: {score}</p> : null}
+            <NavigationBar startQuiz={startQuiz}/>
                 {loading && <p>Loading...</p>}
                 {!loading && !quizIsOver && (
                     <QuestionCard
@@ -71,14 +69,16 @@ const App = () => {
                         answers={(questions as Array<any>)[number]?.answers}
                         userAnswer={userAnswers ? userAnswers[number] : undefined}
                         callback={checkAnswer}
-                        src={(questions as Array<any>)[number]?.src}
+                        score={score}
+                        codeExample={(questions as Array<any>)[number]?.codeExample}
                     />)}
                 {!quizIsOver &&
                 !loading &&
                 userAnswers.length === number + 1 &&
                 number + 1 !== TOTAL_QUESTION ? (
-                    <button className="next" onClick={nextQuestion}>Следующий вопрос</button>) : null}
+                    <button className="next" onClick={nextQuestion}>Next &gt;</button>) : null}
             </Wrapper>
+            <Logo>JS</Logo>
         </>
     );
 }
