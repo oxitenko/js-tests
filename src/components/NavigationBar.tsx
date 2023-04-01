@@ -9,9 +9,9 @@ type NavigationBarProps = {
 const NavigationBar: React.FC<NavigationBarProps> = ({ startQuiz }) => {
     return (
         <Navigation>
-            <Link to="test"><button onClick={startQuiz}>Start</button></Link>
-            <Link to="/"><h1>Console</h1></Link>
-            <a href="https://github.com/oxitenko/js-tests" target="_blank"><AiFillGithub color="white" size={25}/></a>
+            <Link to="js-tests/test"><button onClick={startQuiz}>Start</button></Link>
+            <Link to="js-tests"><h1>Console</h1></Link>
+            <a href="https://github.com/oxitenko/js-tests" target="_blank" rel="noreferrer"><AiFillGithub color="white" size={25}/></a>
         </Navigation>
     );
 };

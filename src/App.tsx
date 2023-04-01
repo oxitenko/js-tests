@@ -68,9 +68,9 @@ const App = () => {
                 <NavigationBar startQuiz={startQuiz}/>
                 {loading && <p>Loading...</p>}
                     <Routes>
-                        <Route path="/" element={<Home/>}/>
+                        <Route path="js-tests" element={<Home/>}/>
                 {!loading && !quizIsOver && (
-                        <Route path="test" element={
+                        <Route path="js-tests/test" element={
                             <QuestionCard
                             questionNumber={number + 1}
                             totalQuestion={TOTAL_QUESTION}
