@@ -5,6 +5,7 @@ export const CardWrapper = styled.div`
   height: 100%;
   display: flex;
   margin-top: 30px;
+  justify-content: center;
   
   .container {
     display: flex;
@@ -60,6 +61,24 @@ export const CardWrapper = styled.div`
     color: #FFFFFF;
     margin-bottom: 30px;
     margin-top: 60px;
+  }
+  .next {
+    background: #404040;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #FC9788;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
   }
 `
 type ButtonWrapperProps = {

@@ -9,10 +9,15 @@ type QuestionCardProps = {
     answers: string[];
     callback: (event: React.MouseEvent<HTMLButtonElement>) => void;
     userAnswer: AnswerObj | undefined;
+    userAnswers: AnswerObj[] | undefined;
     questionNumber: number;
     totalQuestion: number;
     score: number;
     codeExample: string;
+    quizIsOver: boolean;
+    loading: boolean;
+    number: number;
+    nextQuestion: () => void;
 }
 
 const QuestionCard: React.FC<QuestionCardProps> = ({
@@ -23,7 +28,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                                                        questionNumber,
                                                        totalQuestion,
                                                        score,
-                                                       codeExample
+                                                       codeExample,
+                                                       quizIsOver,
+                                                       loading,
+                                                       userAnswers,
+                                                       number,
+                                                       nextQuestion
                                                    }) => {
     return (
         <CardWrapper>
@@ -62,8 +72,13 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                         </ButtonWrapper>
                     ))}
                 </div>
-
             </div>
+            {!quizIsOver &&
+            !loading &&
+            userAnswers?.length === number + 1 &&
+            number + 1 !== totalQuestion ? (
+                <button className="next" onClick={nextQuestion}>Next &gt;</button>
+            ) : null}
         </CardWrapper>
     );
 };

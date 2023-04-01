@@ -1,8 +1,13 @@
 import React, {useState} from 'react';
+import {
+    Routes,
+    Route,
+} from "react-router-dom";
 import QuestionCard from "./components/QuestionCard";
 import {quiz, IQuiz} from "./data/questions"
 import {GlobalStyle, Wrapper, Logo} from "./style/App.styles";
 import NavigationBar from "./components/NavigationBar";
+import Home from "./components/Home";
 
 export type AnswerObj = {
     question?: string;
@@ -56,27 +61,33 @@ const App = () => {
     }
 
     return (
+
         <>
             <GlobalStyle/>
             <Wrapper>
-            <NavigationBar startQuiz={startQuiz}/>
+                <NavigationBar startQuiz={startQuiz}/>
                 {loading && <p>Loading...</p>}
+                    <Routes>
+                        <Route path="/" element={<Home/>}/>
                 {!loading && !quizIsOver && (
-                    <QuestionCard
-                        questionNumber={number + 1}
-                        totalQuestion={TOTAL_QUESTION}
-                        question={(questions as Array<any>)[number]?.question}
-                        answers={(questions as Array<any>)[number]?.answers}
-                        userAnswer={userAnswers ? userAnswers[number] : undefined}
-                        callback={checkAnswer}
-                        score={score}
-                        codeExample={(questions as Array<any>)[number]?.codeExample}
-                    />)}
-                {!quizIsOver &&
-                !loading &&
-                userAnswers.length === number + 1 &&
-                number + 1 !== TOTAL_QUESTION ? (
-                    <button className="next" onClick={nextQuestion}>Next &gt;</button>) : null}
+                        <Route path="test" element={
+                            <QuestionCard
+                            questionNumber={number + 1}
+                            totalQuestion={TOTAL_QUESTION}
+                            question={(questions as Array<any>)[number]?.question}
+                            answers={(questions as Array<any>)[number]?.answers}
+                            userAnswer={userAnswers ? userAnswers[number] : undefined}
+                            userAnswers={userAnswers}
+                            callback={checkAnswer}
+                            score={score}
+                            codeExample={(questions as Array<any>)[number]?.codeExample}
+                            quizIsOver={quizIsOver}
+                            loading={loading}
+                            number={number}
+                            nextQuestion={nextQuestion}
+                        />}/>
+                )}
+                    </Routes>
             </Wrapper>
             <Logo>JS</Logo>
         </>

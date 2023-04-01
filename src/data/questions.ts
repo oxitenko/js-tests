@@ -196,7 +196,7 @@ for (let i = 0; i < 3; i++) {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius
+  perimeter:()=>2 * Math.PI * this.radius
 };
 
 console.log(shape.diameter());
@@ -249,7 +249,8 @@ console.log(b === c);`
   this.lastName = lastName;
 }
 
-const member = new Person('Ivan', 'Ivanov');
+const member = new Person('Ivan','Ivanov');
+
 Person.getFullName = function() {
   return this.firstName + this.lastName;
 };
